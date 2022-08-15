@@ -1,0 +1,11 @@
+<nav class="bg-gray-100 py-4">
+
+  <div class="container mx-auto px-4">
+    <ul class="inline-flex space-x-4">
+      <li><a class="text-gray-800 font-medium hover:decoration-4 hover:underline-offset-2 {% if page.url == '/' %} text-indigo-600 underline decoration-indigo-600 underline-offset-2 decoration-4 {% endif %}" href="/">Home</a></li>
+      <li><a class="text-gray-800 font-medium hover:decoration-4 hover:underline-offset-2 {% if tags == 'post' %} text-indigo-600 underline decoration-indigo-600 underline-offset-2 decoration-4 {% endif %}" href="/blog/about-cofuration-11ty/">Blog</a></li>
+      <li><a class="text-gray-800 font-medium hover:decoration-4 hover:underline-offset-2 {% if page.url == '/contacts/' %} text-indigo-600 underline decoration-indigo-600 underline-offset-2 decoration-4 {% endif %}" href="/contacts/">Contacts</a></li>
+    </ul>
+  </div>
+
+</nav>

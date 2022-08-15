@@ -1,0 +1,44 @@
+---
+layout: page
+title: 11ty - simpler static site generator
+---
+
+<section class="">
+
+  <h1 class="mt-8 mb-4">{{ title }}</h1>
+  <p>Test <a href="https://www.11ty.dev/docs/" target="_blank">11ty static server</a> and <a href="https://github.com/postcss/postcss" target="_blank">postcss</a> with <a href="https://tailwindcss.com/docs/installation" target="_blank">tailwindcss</a> framework {{ name }}</p>
+
+</section>
+<section class="py-8">
+  <div id="box" class="animate__animated font-light text-gray-700 text-6xl h-24 align-middle table-cell transition-all">
+    Hello Word!
+  </div>
+  <p class="mb-4">Test javascript. Press button.</p>
+  <button id="btn" class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:ring-2 ring-offset-2 ring-indigo-600 transition duration-250 active:translate-y-px shadow">BUTTON</button>
+</section>
+<hr>
+<section class="py-4">
+
+  {% markdown %}
+
+  # h1 Test Markdown syntax
+  ## h2 Заголовок Markdown
+
+  Ссылка на документацию по MD синтаксису на `GitHub` ... [Здесь](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+  ----
+  <div class="my-4">this is "div" witch margin "my-4" ... top and bottom: 1 rem</div>
+
+  ----
+  _Курсивный_ и **жирный** текст. А также перенос ...<br>... строки.
+
+  ### h3 Таблица, как бы ...
+  | Facade        | Area     |
+  |---------------|----------|
+  | Flat tiles    | 1 125 m2 |
+  | Grooved tiles | 4 235 m2 |
+  | Total         | 5 360 m2 |
+
+  {% endmarkdown %}
+
+</section>
