@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Classik Blockquote</title><link rel="stylesheet" href="/assets/css/main.min.css"></head><body><nav class="bg-gray-100 py-4"><div class="container mx-auto px-4"><ul class="inline-flex space-x-4"><li><a class="text-gray-800 font-medium hover:decoration-4 hover:underline-offset-2" href="/">Home</a></li><li><a class="text-gray-800 font-medium hover:decoration-4 hover:underline-offset-2 text-indigo-600 underline decoration-indigo-600 underline-offset-2 decoration-4" href="/blog/about-cofuration-11ty/">Blog</a></li><li><a class="text-gray-800 font-medium hover:decoration-4 hover:underline-offset-2" href="/contacts/">Contacts</a></li></ul></div></nav><main class="container mx-auto px-4 flex-shrink-0 my-8"><h1>Post header about sweet life</h1><blockquote><p>&quot;О сколько нам, открытий чудных ...&quot;<br><em>А.С.Пушкин</em></p></blockquote><h1></h1><h2>Файл конфигурации 11ty:</h2><pre><code>// .eleventy.js
+
+
+const markdown = require('markdown-it')({ html: true })
+const htmlmin = require('html-minifier')
+
+module.exports = function (config) {
+  config.addPassthroughCopy('./*.htaccess')
+  config.addPassthroughCopy('src/assets/js/main.min.js')
+  config.addPassthroughCopy('src/assets/css/main.min.css')
+  config.addPassthroughCopy('src/assets/images')
+  config.addPassthroughCopy('src/assets/fonts')
+
+  config.addPairedShortcode('markdown', (content) =&gt; {
+    return markdown.render(content)
+  })
+
+  config.addTransform('htmlmin', (content, outputPath) =&gt; {
+    if (outputPath &amp;&amp; outputPath.endsWith('.html')) {
+      const result = htmlmin.minify(content, {
+        removeComments: true,
+        collapseWhitespace: true,
+      })
+      return result
+    }
+    return content
+  })
+
+  return {
+    htmlTemplateEngine: 'njk',
+    markdownTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
+    templateFormats: ['njk', 'md'],
+    passthroughFileCopy: true,
+    dir: {
+      input: 'src',
+      output: 'dist',
+      // ⚠️ Эти значения относятся к входному каталогу.
+      includes: 'includes',
+      layouts: 'layouts',
+      data: 'data',
+    },
+  }
+}
+</code></pre></main><footer class="container mt-auto mx-auto text-center p-4"><hr class="w-3/4 mb-2 mx-auto">&copy; 2021 <a href="https://github.com/llcawc">llcawc</a>, all rights reserved. Made with <span style="color: #e60f0a">&#10084;</span> for the best architecture.</footer><script src="/assets/js/main.min.js"></script></body></html>
