@@ -13,7 +13,7 @@ module.exports = {
   bracketSpacing: true,
   overrides: [
     {
-      files: ['*.js', '*.mjs'],
+      files: ['*.js', '*.cjs', '*.mjs'],
       options: {
         parser: 'flow',
       },

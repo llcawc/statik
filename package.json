@@ -17,14 +17,15 @@
     "cleandist": "rm -rf dist",
     "11ty": "npx @11ty/eleventy",
     "test": "DEBUG=Eleventy* npx @11ty/eleventy",
-    "serve": "browser-sync dist --port 3000 -b 'firefox' --no-notify",
+    "serve": "browser-sync dist --port 3000 --no-notify",
     "dev": "npm-run-all cleandist --parallel dev:*",
     "dev:11ty": "npx @11ty/eleventy --serve --port=3000 --watch",
-    "dev:js": "rollup -c -w",
+    "dev:js": "rollup -c -w --silent",
     "dev:css": "postcss src/assets/styles/main.postcss -o src/assets/css/main.min.css -w",
-    "build": "npm-run-all cleandist build:* 11ty",
+    "build": "npm-run-all cleandist build:* 11ty arc",
     "build:js": "rollup -c --environment BUILD:production",
-    "build:css": "NODE_ENV=production postcss src/assets/styles/main.postcss -o src/assets/css/main.min.css"
+    "build:css": "NODE_ENV=production postcss src/assets/styles/main.postcss -o src/assets/css/main.min.css",
+    "arc": "rsync -aP --delete --exclude=node_modules --exclude=Thumbs.db --exclude=.DS_Store ./ /mnt/d/Coding/breadboard/statik/"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
