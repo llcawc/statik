@@ -1,33 +1,37 @@
 // base styles
 
-body {
-  font-family: Inter, sans-serif;
-  @apply text-gray-700 bg-white overflow-x-hidden min-w-[20rem];
-}
+@layer base {
 
-pre, code, kbd, samp {
-  font-family: 'JetBrains Mono', monospace;
-  @apply text-gray-800 bg-gray-100 border-2 border-gray-100 rounded px-1;
-}
-
-h3,h2,h1 {
-  @apply font-bold mb-4 text-gray-800;
-}
-h1 { @apply text-4xl; }
-h2 { @apply text-2xl; }
-h3 { @apply text-xl; }
-
-a {
-  @apply text-indigo-600 font-medium hover:underline transition duration-250;
-}
-
-table {
-  th, td {
-    padding: 0.25rem;
-    border: solid 1px #ccc;
+  body {
+    font-family: Inter, sans-serif;
+    @apply text-gray-700 bg-white overflow-x-hidden min-w-[20rem];
   }
-}
 
-:focus-visible {
-  outline: 2px dotted #888;
+  pre, code, kbd, samp {
+    font-family: 'JetBrains Mono', monospace;
+    @apply text-gray-800 bg-gray-100 border-2 border-gray-100 rounded px-1;
+  }
+
+  h3,h2,h1 {
+  @apply font-bold mb-4 text-gray-800;
+  }
+
+  h1 { @apply text-4xl; }
+  h2 { @apply text-2xl; }
+  h3 { @apply text-xl; }
+
+  a {
+    @apply text-indigo-600 font-medium hover:underline transition duration-250;
+  }
+
+  table {
+    th, td {
+      padding: 0.25rem;
+      border: solid 1px #ccc;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px dotted #888;
+  }
 }
